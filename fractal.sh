@@ -30,13 +30,13 @@ sudo apt install curl build-essential pkg-config libssl-dev git wget jq make gcc
 
 # Загрузка и распаковка архива
 status_message "Скачивание и распаковка архива..."
-wget https://github.com/fractal-bitcoin/fractald-release/releases/download/v1.0.6/fractald-1.0.6-x86_64-linux-gnu.tar.gz
-tar -zxvf fractald-1.0.6-x86_64-linux-gnu.tar.gz
-rm -rf fractald-1.0.6-x86_64-linux-gnu.tar.gz
+wget https://github.com/fractal-bitcoin/fractald-release/releases/download/v1.0.7/fractald-1.0.7-x86_64-linux-gnu.tar.gz
+tar -zxvf fractald-1.0.7-x86_64-linux-gnu.tar.gz
+rm -rf fractald-1.0.7-x86_64-linux-gnu.tar.gz
 sleep 5
 
 # Переход в директорию и копирование конфигурации
-cd fractald-1.0.6-x86_64-linux-gnu || { echo "Не удалось перейти в директорию"; exit 1; }
+cd fractald-1.0.7-x86_64-linux-gnu || { echo "Не удалось перейти в директорию"; exit 1; }
 status_message "Создание директории для данных и копирование конфигурации..."
 mkdir data
 cp ./bitcoin.conf ./data
@@ -50,7 +50,7 @@ Description=Fractal Node
 After=network.target
 [Service]
 User=root
-ExecStart=/root/fractald-1.0.6-x86_64-linux-gnu/bin/bitcoind -datadir=/root/fractald-1.0.6-x86_64-linux-gnu/data/ -maxtipage=504576000
+ExecStart=/root/fractald-1.0.6-x86_64-linux-gnu/bin/bitcoind -datadir=/root/fractald-1.0.7-x86_64-linux-gnu/data/ -maxtipage=504576000
 Restart=always
 RestartSec=3
 LimitNOFILE=infinity
