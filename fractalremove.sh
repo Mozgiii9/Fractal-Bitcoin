@@ -15,8 +15,6 @@ sudo systemctl daemon-reload
 # Удаление файлов программы и данных
 status_message "Удаление файлов программы и данных..."
 rm -rf /root/fractald-1.0.7-x86_64-linux-gnu
-rm -f /root/.bitcoin/wallets/wallet/wallet.dat
-rm -f /root/.bitcoin/wallets/wallet/MyPK.dat
 
 # Очистка системных журналов
 status_message "Очистка системных журналов..."
