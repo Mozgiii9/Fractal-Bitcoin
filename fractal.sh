@@ -149,6 +149,13 @@ function update_script() {
     echo "Резервное копирование директории data..."
     sudo cp -r /root/fractald-0.1.7-x86_64-linux-gnu/data /root/fractal-data-backup
 
+    echo "Удаление прошлой версии..."
+    sudo systemctl stop fractald
+    sudo systemctl disable fractald
+    sudo rm /etc/systemd/system/fractald.service
+    sudo systemctl daemon-reload
+    rm -rf /root/fractald-0.1.7-x86_64-linux-gnu
+
     # Загрузка новой версии библиотеки fractald
     echo "Загрузка новой версии библиотеки fractald..."
     wget https://github.com/fractal-bitcoin/fractald-release/releases/download/v0.1.8/fractald-0.1.8-x86_64-linux-gnu.tar.gz
